@@ -1,0 +1,77 @@
+@import "./base/norme";
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font_body;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header */
+
+header {
+  text-align: center;
+  padding: 5px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.7);
+}
+
+img {
+  width: 40%;
+}
+
+/* Découverte */
+
+.decouverte {
+  text-align: center;
+  p {
+    font-weight: 300;
+    padding-bottom: 20px;
+  }
+  h1 {
+    padding: 0 30px;
+  }
+  a {
+    text-decoration: none;
+    border: 2px solid blueviolet;
+    padding: 10px;
+    border-radius: 50px;
+  }
+}
+.localisation {
+  display: flex;
+  justify-content: center;
+  background-color: $background_localisation;
+  padding: 10px 0;
+}
+
+input[type="text"] {
+  border: none;
+  background-color: $background_localisation;
+  width: 110px;
+  padding-left: 10px;
+}
+
+/* Fonctionnement */
+
+.fonctionnement {
+    margin-top: 50px;
+    padding: 0 20px;
+}
+
+/* Restaurants */
+
+/* Footer */
+
+footer h3 {
+  font-family: $font_logo;
+  font-size: x-large;
+}
+footer ul {
+  list-style: none;
+  padding: 0;
+}
