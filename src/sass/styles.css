@@ -12,21 +12,30 @@ body {
   padding: 0;
 }
 
+a.div {
+  display: block;
+  color: inherit;
+  text-decoration: inherit;
+}
+
 /* Header */
 header {
   text-align: center;
-  padding: 5px;
-  -webkit-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.7);
-          box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.7);
+  padding: 20px 0 10px 0;
+  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+  position: relative;
 }
 
-img {
-  width: 40%;
+header img {
+  width: 50%;
 }
 
 /* Découverte */
 .decouverte {
   text-align: center;
+  background-color: #f6f6f6;
+  padding-bottom: 50px;
 }
 
 .decouverte p {
@@ -39,9 +48,13 @@ img {
 }
 
 .decouverte a {
+  display: inline-block;
   text-decoration: none;
-  border: 2px solid blueviolet;
-  padding: 10px;
+  color: white;
+  background: linear-gradient(170deg, #FF79DA, #9356DC);
+  -webkit-box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
+          box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
+  padding: 15px;
   border-radius: 50px;
 }
 
@@ -52,32 +65,145 @@ img {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background-color: #D8D7D7;
+  background-color: #EDEDED;
   padding: 10px 0;
 }
 
-input[type="text"] {
+.localisation input[type="text"] {
   border: none;
-  background-color: #D8D7D7;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  background-color: #EDEDED;
   width: 110px;
   padding-left: 10px;
 }
 
 /* Fonctionnement */
 .fonctionnement {
-  margin-top: 50px;
+  margin-top: 40px;
+  padding: 0 20px 20px 20px;
+}
+
+.fonctionnement ol {
+  list-style: none;
+  padding-left: 15px;
+}
+
+.fonctionnement li {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  border-radius: 20px;
+  -webkit-box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
+          box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.fonctionnement li:hover {
+  background-color: rgba(255, 121, 218, 0.15);
+}
+
+.fonctionnement li:hover .icon {
+  color: #9356DC;
+}
+
+.fonctionnement li:hover p {
+  font-weight: bold;
+}
+
+.fonctionnement li .number {
+  position: absolute;
+  left: -15px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  color: white;
+  border-radius: 100%;
+  background-color: #9356DC;
+  padding: 2px 7px;
+}
+
+.fonctionnement li .icon {
+  color: grey;
   padding: 0 20px;
 }
 
 /* Restaurants */
+.restaurants {
+  background-color: #f6f6f6;
+}
+
+.restaurants h2 {
+  padding: 40px 30px 20px 30px;
+  margin: 0;
+}
+
+.restaurants .cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 0 30px 30px 30px;
+  gap: 30px;
+}
+
+.restaurants .card {
+  background-color: white;
+  border-radius: 20px;
+}
+
+.restaurants img {
+  width: 100%;
+  height: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.restaurants span {
+  background-color: #99E2D0;
+  font-weight: bold;
+  padding: 5px;
+  border-radius: 3px;
+}
+
 /* Footer */
+footer {
+  padding: 30px;
+  color: white;
+  background-color: #3f3e3e;
+}
+
 footer h3 {
   font-family: "Shrikhand", sans-serif;
-  font-size: x-large;
+  font-size: 140%;
+  margin: 0;
 }
 
 footer ul {
   list-style: none;
   padding: 0;
+}
+
+footer li {
+  padding-bottom: 10px;
+}
+
+footer .icon {
+  padding-right: 10px;
+}
+
+footer a {
+  text-decoration: none;
+  color: white;
 }
 /*# sourceMappingURL=styles.css.map */
