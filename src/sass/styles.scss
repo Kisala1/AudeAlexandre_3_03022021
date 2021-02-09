@@ -14,7 +14,7 @@ body {
   padding: 0;
 }
 
-a.div {
+a.lien {
   display: block;
   color: inherit;
   text-decoration: inherit;
@@ -54,6 +54,10 @@ header {
     box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
     padding: 15px;
     border-radius: 50px;
+    &:hover {
+      background: linear-gradient(170deg, #ff99ff, #8855aa);
+      box-shadow: 2px 5px 8px rgba(0, 0, 0, 0.5);
+    }
   }
 }
 
@@ -91,7 +95,7 @@ header {
     padding: 10px;
     margin-bottom: 20px;
     &:hover {
-      background-color: rgba(255, 121, 218, 0.15);
+      background-color: rgba(147, 86, 220, 0.15);
       .icon {
         color: $purple;
       }
@@ -113,6 +117,10 @@ header {
       color: grey;
       padding: 0 20px;
     }
+    .fa-mobile-alt {
+      font-size: 20px;
+      margin-right: 5px;
+    }
   }
 }
 
@@ -120,34 +128,80 @@ header {
 
 .restaurants {
   background-color: #f6f6f6;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 0 30px 30px 30px;
+  gap: 30px;
   h2 {
     padding: 40px 30px 20px 30px;
     margin: 0;
   }
-  .cards {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    padding: 0 30px 30px 30px;
-    gap: 30px;
-  }
-  .card {
+  .lien {
     background-color: white;
     border-radius: 20px;
+    height: auto;
+  }
+  figure {
+    margin: auto;
+    position: relative;
   }
   img {
+    position: absolute;
     width: 100%;
-    height: 100px;
     object-fit: cover;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
   }
-  span {
+  figcaption {
+    height: 75px;
+    position: absolute;
+  }
+  h3,
+  p {
+    margin: auto;
+    padding: 0 15px;
+  }
+  h3 {
+    padding-top: 10px;
+  }
+  p {
+    padding-top: 5px;
+  }
+  strong {
+    position: absolute;
+    top: 10px;
+    left: 180px;
+    color: darken($mint, 40);
     background-color: $mint;
     font-weight: bold;
-    padding: 5px;
+    padding: 5px 15px;
     border-radius: 3px;
   }
+  span {
+    position: absolute;
+    font-size: 25px;
+    top: -30px;
+    left: 260px;
+  }
+  .like-button {
+    &::before {
+      @extend %fontawesomeicon;
+      content: "\f004";
+    }
+    &:active::before {
+      font-weight: 900;
+      background: -webkit-linear-gradient($pink, $purple);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      // Si adaptation web sans -webkit-
+      background-clip: text;
+      text-fill-color: transparent;
+      //
+    }
+  }
 }
-
 /* Footer */
 
 footer {
@@ -168,6 +222,10 @@ footer {
   }
   .icon {
     padding-right: 10px;
+  }
+
+  .fa-hands-helping {
+    font-size: 11px;
   }
   a {
     text-decoration: none;
