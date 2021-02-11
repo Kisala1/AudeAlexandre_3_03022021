@@ -43,6 +43,39 @@ header img {
   width: 50%;
 }
 
+/* Loading */
+.loading {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: #d7c0f2;
+}
+
+.loading .load {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #FF79DA;
+  font-size: 200%;
+  -webkit-animation: rotate 1s 2 linear;
+          animation: rotate 1s 2 linear;
+}
+
+@-webkit-keyframes rotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
 /* Découverte */
 .decouverte {
   text-align: center;
@@ -99,7 +132,7 @@ header img {
 /* Fonctionnement */
 .fonctionnement {
   margin-top: 40px;
-  padding: 0 20px 20px 20px;
+  padding: 0 20px 30px 20px;
 }
 
 .fonctionnement ol {
@@ -170,11 +203,11 @@ header img {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   padding: 0 30px 30px 30px;
-  gap: 30px;
+  gap: 20px;
 }
 
 .restaurants h2 {
-  padding: 40px 30px 20px 30px;
+  padding: 40px 30px 0 0;
   margin: 0;
 }
 
@@ -187,6 +220,7 @@ header img {
 .restaurants figure {
   margin: auto;
   position: relative;
+  height: 300px;
 }
 
 .restaurants img {
@@ -199,8 +233,8 @@ header img {
 }
 
 .restaurants figcaption {
-  height: 75px;
   position: absolute;
+  top: 220px;
 }
 
 .restaurants h3,
@@ -217,10 +251,10 @@ header img {
   padding-top: 5px;
 }
 
-.restaurants strong {
+.restaurants .new {
   position: absolute;
-  top: 10px;
-  left: 180px;
+  top: -205px;
+  left: 210px;
   color: #278870;
   background-color: #99E2D0;
   font-weight: bold;
@@ -228,10 +262,10 @@ header img {
   border-radius: 3px;
 }
 
-.restaurants span {
+.restaurants .like-button {
   position: absolute;
   font-size: 25px;
-  top: -30px;
+  top: 15px;
   left: 260px;
 }
 
