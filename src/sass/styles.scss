@@ -20,27 +20,15 @@ a.lien {
   text-decoration: inherit;
 }
 
-/* Header */
-
-header {
-  text-align: center;
-  padding: 20px 0 10px 0;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
-  position: relative;
-
-  img {
-    width: 50%;
-  }
-}
-
 /* Loading */
 
-.loading {
-  position: absolute;
+.loader-container {
+  position: fixed;
   z-index: 1;
   width: 100%;
   height: 100%;
   background-color: lighten($purple, 25);
+  animation: disappears 1s linear 2.5s forwards;
 
   .load {
     position: absolute;
@@ -48,14 +36,181 @@ header {
     left: 50%;
     color: $pink;
     font-size: 200%;
-    animation: rotate 1s 2 linear;
+    animation: rotate 1s linear 300ms 2;
   }
 }
+
 @keyframes rotate {
   100% {
     transform: rotate(360deg);
   }
 }
+@keyframes disappears {
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Header */
+
+header {
+  text-align: center;
+  padding: 20px 0 10px 0;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+img {
+  width: 50%;
+}
+.header-menu {
+  a {
+    display: flex;
+    justify-content: center;
+    color: inherit;
+    text-decoration: inherit;
+
+    .arrow {
+      padding: 0 20px;
+      align-self: center;
+    }
+  }
+}
+/* ------------------------------------------------MENUS------------------------------------------------ */
+/* background-img*/
+
+.background-img {
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+}
+/* .menu */
+
+.menu {
+  position: absolute;
+  top: 260px;
+  width: 100%;
+  display: flex;
+
+  flex-direction: column;
+  background-color: #f6f6f6;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  h1 {
+    font-family: $font_logo, sans-serif;
+    font-weight: 400;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 20px 0 20px;
+    margin: 0;
+    span {
+      &::after {
+        @extend %fontawesomeicon;
+        content: "\f004";
+      }
+      &:active::after {
+        font-weight: 900;
+        @extend %fillingheart;
+      }
+    }
+  }
+  h2 {
+    font-size: medium;
+    font-weight: lighter;
+    margin: 30px 10px 10px 10px;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 40px;
+      height: 3px;
+      background: $mint;
+    }
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    
+
+    li {
+      display: flex;
+      flex-direction: row-reverse;
+      background-color: white;
+      border-radius: 20px;
+      overflow: hidden;
+      margin: 10px;
+
+      label {
+        cursor: pointer;
+
+        h3,
+        p {
+          margin: 0;
+          padding: 5px 0;
+        }
+        p {
+          width: 250px;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+        }
+      }
+      .prix {
+        text-align: end;
+        span {
+          font-weight: bold;
+        }
+      }
+      .checkbox {
+        cursor: pointer;
+        appearance: none;
+        display: block;
+        padding: 0;
+        margin: 0;
+        border: 0;
+        outline: 0;
+        width: 0px;
+        background: lighten($mint, 5%);
+        transition: width 0.33s ease-in;
+
+        &:checked {
+          position: relative;
+          width: 60px;
+        }
+
+        &::before {
+          content: "\f058";
+          @extend %fontawesomecheck;
+          color: white;
+          font-size: 20px;
+          position: absolute;
+          transform: translate(-50%, -50%);
+          top: 50%;
+          left: 30px;
+        }
+      }
+    }
+  }
+  .commander {
+    text-align: center;
+    padding: 30px 0;
+    button {
+      cursor: pointer;
+      padding: 10px 30px;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      background: linear-gradient(170deg, $pink, $purple);
+      box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
+      &:hover {
+        background: linear-gradient(170deg, #ff99ff, #8855aa);
+        box-shadow: 2px 5px 8px rgba(0, 0, 0, 0.5);
+      }
+    }
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------------------ */
 
 /* Découverte */
 
@@ -163,79 +318,76 @@ header {
     padding: 40px 30px 0 0;
     margin: 0;
   }
-  .lien {
+  .card {
     background-color: white;
     border-radius: 20px;
-    height: auto;
-  }
-  figure {
     margin: auto;
-    position: relative;
-    height: 300px;
-  }
-  img {
-    position: absolute;
-    width: 100%;
-    object-fit: cover;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-  }
-  figcaption {
-    position: absolute;
-    top: 220px;
-  }
-  h3,
-  p {
-    margin: auto;
-    padding: 0 15px;
-  }
-  h3 {
-    padding-top: 10px;
-  }
-  p {
-    padding-top: 5px;
-  }
-  .new {
-    position: absolute;
-    top: -205px;
-    left: 210px;
-    color: darken($mint, 40);
-    background-color: $mint;
-    font-weight: bold;
-    padding: 5px 15px;
-    border-radius: 3px;
-  }
 
+    .card-img {
+      position: relative;
+      height: 170px;
+      img {
+        width: 100%;
+        height: inherit;
+        object-fit: cover;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+      }
+      .new {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        color: darken($mint, 40);
+        background-color: $mint;
+        font-weight: bold;
+        padding: 5px 15px;
+        border-radius: 3px;
+      }
+    }
+    figcaption {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 10px;
+    }
+    h3,
+    p {
+      margin: auto;
+      padding: 0 15px;
+    }
+    h3 {
+      padding-top: 10px;
+    }
+    p {
+      padding-top: 5px;
+    }
+    .actions {
+      align-self: center;
+      padding-right: 25px;
+    }
+  }
   .like-button {
-    position: absolute;
     font-size: 25px;
-    top: 15px;
-    left: 260px;
     &::before {
       @extend %fontawesomeicon;
       content: "\f004";
     }
     &:active::before {
       font-weight: 900;
-      background: -webkit-linear-gradient($pink, $purple);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      // Si adaptation web sans -webkit-
-      background-clip: text;
-      text-fill-color: transparent;
-      //
+      @extend %fillingheart;
     }
   }
 }
 /* Footer */
 
 footer {
+  width: 100%;
   padding: 30px;
   color: white;
   background-color: #3f3e3e;
   h3 {
     font-family: $font_logo;
     font-size: 140%;
+    font-weight: 400;
     margin: 0;
   }
   ul {

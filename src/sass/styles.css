@@ -1,8 +1,27 @@
 @charset "UTF-8";
-.restaurants .like-button::before {
+.menu h1 span::after, .restaurants .like-button::before {
   font-family: "Font Awesome 5 Free";
   font-weight: 400;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+}
+
+.menu h1 span:active::after, .restaurants .like-button:active::before {
+  background: -webkit-linear-gradient(#9356DC, #FF79DA);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.menu ul li .checkbox::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
   -webkit-font-smoothing: antialiased;
   display: inline-block;
   font-style: normal;
@@ -30,36 +49,25 @@ a.lien {
   text-decoration: inherit;
 }
 
-/* Header */
-header {
-  text-align: center;
-  padding: 20px 0 10px 0;
-  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
-          box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
-  position: relative;
-}
-
-header img {
-  width: 50%;
-}
-
 /* Loading */
-.loading {
-  position: absolute;
+.loader-container {
+  position: fixed;
   z-index: 1;
   width: 100%;
   height: 100%;
   background-color: #d7c0f2;
+  -webkit-animation: disappears 1s linear 2.5s forwards;
+          animation: disappears 1s linear 2.5s forwards;
 }
 
-.loading .load {
+.loader-container .load {
   position: absolute;
   top: 50%;
   left: 50%;
   color: #FF79DA;
   font-size: 200%;
-  -webkit-animation: rotate 1s 2 linear;
-          animation: rotate 1s 2 linear;
+  -webkit-animation: rotate 1s linear 300ms 2;
+          animation: rotate 1s linear 300ms 2;
 }
 
 @-webkit-keyframes rotate {
@@ -76,6 +84,208 @@ header img {
   }
 }
 
+@-webkit-keyframes disappears {
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes disappears {
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Header */
+header {
+  text-align: center;
+  padding: 20px 0 10px 0;
+  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+img {
+  width: 50%;
+}
+
+.header-menu a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.header-menu a .arrow {
+  padding: 0 20px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+/* ------------------------------------------------MENUS------------------------------------------------ */
+/* background-img*/
+.background-img img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+/* .menu */
+.menu {
+  position: absolute;
+  top: 260px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #f6f6f6;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.menu h1 {
+  font-family: "Shrikhand", sans-serif, sans-serif;
+  font-weight: 400;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 20px 20px 0 20px;
+  margin: 0;
+}
+
+.menu h1 span::after {
+  content: "\f004";
+}
+
+.menu h1 span:active::after {
+  font-weight: 900;
+}
+
+.menu h2 {
+  font-size: medium;
+  font-weight: lighter;
+  margin: 30px 10px 10px 10px;
+}
+
+.menu h2::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: #99E2D0;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.menu ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  background-color: white;
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 10px;
+}
+
+.menu ul li label {
+  cursor: pointer;
+}
+
+.menu ul li label h3,
+.menu ul li label p {
+  margin: 0;
+  padding: 5px 0;
+}
+
+.menu ul li label p {
+  width: 250px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.menu ul li .prix {
+  text-align: end;
+}
+
+.menu ul li .prix span {
+  font-weight: bold;
+}
+
+.menu ul li .checkbox {
+  cursor: pointer;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  display: block;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: 0;
+  width: 0px;
+  background: #ade8d9;
+  -webkit-transition: width 0.33s ease-in;
+  transition: width 0.33s ease-in;
+}
+
+.menu ul li .checkbox:checked {
+  position: relative;
+  width: 60px;
+}
+
+.menu ul li .checkbox::before {
+  content: "\f058";
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  top: 50%;
+  left: 30px;
+}
+
+.menu .commander {
+  text-align: center;
+  padding: 30px 0;
+}
+
+.menu .commander button {
+  cursor: pointer;
+  padding: 10px 30px;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(170deg, #FF79DA, #9356DC);
+  -webkit-box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
+          box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.menu .commander button:hover {
+  background: linear-gradient(170deg, #ff99ff, #8855aa);
+  -webkit-box-shadow: 2px 5px 8px rgba(0, 0, 0, 0.5);
+          box-shadow: 2px 5px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* ------------------------------------------------------------------------------------------------------------ */
 /* Découverte */
 .decouverte {
   text-align: center;
@@ -211,50 +421,30 @@ header img {
   margin: 0;
 }
 
-.restaurants .lien {
+.restaurants .card {
   background-color: white;
   border-radius: 20px;
-  height: auto;
-}
-
-.restaurants figure {
   margin: auto;
-  position: relative;
-  height: 300px;
 }
 
-.restaurants img {
-  position: absolute;
+.restaurants .card .card-img {
+  position: relative;
+  height: 170px;
+}
+
+.restaurants .card .card-img img {
   width: 100%;
+  height: inherit;
   -o-object-fit: cover;
      object-fit: cover;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 }
 
-.restaurants figcaption {
+.restaurants .card .card-img .new {
   position: absolute;
-  top: 220px;
-}
-
-.restaurants h3,
-.restaurants p {
-  margin: auto;
-  padding: 0 15px;
-}
-
-.restaurants h3 {
-  padding-top: 10px;
-}
-
-.restaurants p {
-  padding-top: 5px;
-}
-
-.restaurants .new {
-  position: absolute;
-  top: -205px;
-  left: 210px;
+  right: 10px;
+  top: 10px;
   color: #278870;
   background-color: #99E2D0;
   font-weight: bold;
@@ -262,11 +452,39 @@ header img {
   border-radius: 3px;
 }
 
+.restaurants .card figcaption {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-bottom: 10px;
+}
+
+.restaurants .card h3,
+.restaurants .card p {
+  margin: auto;
+  padding: 0 15px;
+}
+
+.restaurants .card h3 {
+  padding-top: 10px;
+}
+
+.restaurants .card p {
+  padding-top: 5px;
+}
+
+.restaurants .card .actions {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  padding-right: 25px;
+}
+
 .restaurants .like-button {
-  position: absolute;
   font-size: 25px;
-  top: 15px;
-  left: 260px;
 }
 
 .restaurants .like-button::before {
@@ -275,15 +493,11 @@ header img {
 
 .restaurants .like-button:active::before {
   font-weight: 900;
-  background: -webkit-linear-gradient(#FF79DA, #9356DC);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-fill-color: transparent;
 }
 
 /* Footer */
 footer {
+  width: 100%;
   padding: 30px;
   color: white;
   background-color: #3f3e3e;
@@ -292,6 +506,7 @@ footer {
 footer h3 {
   font-family: "Shrikhand", sans-serif;
   font-size: 140%;
+  font-weight: 400;
   margin: 0;
 }
 
