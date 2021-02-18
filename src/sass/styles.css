@@ -19,7 +19,7 @@
   text-fill-color: transparent;
 }
 
-.menu ul li .checkbox::before {
+.menu ul li .plat .checked-indicator::before {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   -webkit-font-smoothing: antialiased;
@@ -137,9 +137,8 @@ img {
 
 /* .menu */
 .menu {
-  position: absolute;
-  top: 260px;
-  width: 100%;
+  position: relative;
+  margin-top: -60px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -193,74 +192,102 @@ img {
 }
 
 .menu ul li {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: reverse;
-      -ms-flex-direction: row-reverse;
-          flex-direction: row-reverse;
   background-color: white;
   border-radius: 20px;
   overflow: hidden;
   margin: 10px;
 }
 
-.menu ul li label {
-  cursor: pointer;
+.menu ul li .plat {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 
-.menu ul li label h3,
-.menu ul li label p {
+.menu ul li .plat .metadata {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  min-width: 0;
+  margin: 10px;
+}
+
+.menu ul li .plat .metadata h3 {
   margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.menu ul li .plat .metadata .legende {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   padding: 5px 0;
 }
 
-.menu ul li label p {
-  width: 250px;
+.menu ul li .plat .metadata .legende .description {
   text-overflow: ellipsis;
-  overflow: hidden;
   white-space: nowrap;
+  overflow: hidden;
 }
 
-.menu ul li .prix {
-  text-align: end;
+.menu ul li .plat .metadata .legende .description p {
+  margin: 0%;
 }
 
-.menu ul li .prix span {
-  font-weight: bold;
+.menu ul li .plat .metadata .legende .prix {
+  margin-left: 5px;
 }
 
-.menu ul li .checkbox {
-  cursor: pointer;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  display: block;
-  padding: 0;
-  margin: 0;
-  border: 0;
-  outline: 0;
-  width: 0px;
-  background: #ade8d9;
-  -webkit-transition: width 0.33s ease-in;
-  transition: width 0.33s ease-in;
-}
-
-.menu ul li .checkbox:checked {
+.menu ul li .plat .checked-indicator {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
   position: relative;
+  background: #ade8d9;
   width: 60px;
+  margin-right: -60px;
+  -webkit-transition: margin 0.33s ease-in;
+  transition: margin 0.33s ease-in;
 }
 
-.menu ul li .checkbox::before {
+.menu ul li .plat .checked-indicator::before {
   content: "\f058";
   color: white;
   font-size: 20px;
   position: absolute;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
   top: 50%;
-  left: 30px;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%) rotate(270deg);
+          transform: translate(-50%, -50%) rotate(270deg);
+  -webkit-transition: -webkit-transform 0.33s ease-in;
+  transition: -webkit-transform 0.33s ease-in;
+  transition: transform 0.33s ease-in;
+  transition: transform 0.33s ease-in, -webkit-transform 0.33s ease-in;
+}
+
+.menu ul li .check {
+  position: absolute;
+  width: 0;
+  height: 0;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+.menu ul li .check:checked + .plat .checked-indicator {
+  margin-right: 0;
+}
+
+.menu ul li .check:checked + .plat .checked-indicator::before {
+  -webkit-transform: translate(-50%, -50%) rotate(0deg);
+          transform: translate(-50%, -50%) rotate(0deg);
 }
 
 .menu .commander {

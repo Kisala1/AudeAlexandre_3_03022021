@@ -87,9 +87,8 @@ img {
 /* .menu */
 
 .menu {
-  position: absolute;
-  top: 260px;
-  width: 100%;
+  position: relative;
+  margin-top: -60px;
   display: flex;
 
   flex-direction: column;
@@ -130,63 +129,82 @@ img {
   ul {
     list-style: none;
     padding: 0;
-    
 
     li {
-      display: flex;
-      flex-direction: row-reverse;
       background-color: white;
       border-radius: 20px;
       overflow: hidden;
       margin: 10px;
 
-      label {
-        cursor: pointer;
+      .plat {
+        display: flex;
+        flex-direction: row;
 
-        h3,
-        p {
-          margin: 0;
-          padding: 5px 0;
-        }
-        p {
-          width: 250px;
-          text-overflow: ellipsis;
-          overflow: hidden;
-          white-space: nowrap;
-        }
-      }
-      .prix {
-        text-align: end;
-        span {
-          font-weight: bold;
-        }
-      }
-      .checkbox {
-        cursor: pointer;
-        appearance: none;
-        display: block;
-        padding: 0;
-        margin: 0;
-        border: 0;
-        outline: 0;
-        width: 0px;
-        background: lighten($mint, 5%);
-        transition: width 0.33s ease-in;
+        .metadata {
+          flex-grow: 1;
+          flex-shrink: 1;
+          min-width: 0;
+          margin: 10px;
+          h3 {
+            margin: 0;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+          }
+          .legende {
+            display: flex;
+            padding: 5px 0;
 
-        &:checked {
+            .description {
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              overflow: hidden;
+              p {
+                margin: 0%;
+              }
+            }
+            .prix {
+              margin-left: 5px;
+            }
+          }
+        }
+
+        .checked-indicator {
+          flex-shrink: 0;
+
           position: relative;
+          background: lighten($mint, 5%);
           width: 60px;
-        }
+          margin-right: -60px;
+          transition: margin 0.33s ease-in;
 
-        &::before {
-          content: "\f058";
-          @extend %fontawesomecheck;
-          color: white;
-          font-size: 20px;
-          position: absolute;
-          transform: translate(-50%, -50%);
-          top: 50%;
-          left: 30px;
+          &::before {
+            content: "\f058";
+            @extend %fontawesomecheck;
+            color: white;
+            font-size: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(270deg);
+            transition: transform 0.33s ease-in;
+          }
+        }
+      }
+
+      .check {
+        position: absolute;
+        width: 0;
+        height: 0;
+        appearance: none;
+      }
+      .check:checked + .plat {
+        .checked-indicator {
+          margin-right: 0;
+
+          &::before {
+            transform: translate(-50%, -50%) rotate(0deg);
+          }
         }
       }
     }
