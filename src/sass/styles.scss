@@ -158,7 +158,7 @@ img {
       overflow: hidden;
       margin: 10px;
       opacity: 0;
-      animation: plat 1s ease-in 0.4s forwards;
+      animation: plat 0.7s ease-in 0.4s forwards;
 
       @keyframes plat {
         0% {
@@ -182,6 +182,7 @@ img {
           margin: 10px;
           h3 {
             margin: 0;
+            font-size: large;
             text-overflow: ellipsis;
             white-space: nowrap;
             overflow: hidden;
@@ -189,6 +190,7 @@ img {
           .legende {
             display: flex;
             justify-content: space-between;
+            font-size: 90%;
             padding: 5px 0;
 
             .description {
