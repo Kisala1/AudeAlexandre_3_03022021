@@ -170,12 +170,53 @@ img {
 
 .menu h1 span:active::after {
   font-weight: 900;
+  -webkit-animation: heart 0.33s ease-in forwards;
+          animation: heart 0.33s ease-in forwards;
+}
+
+@-webkit-keyframes heart {
+  0% {
+    opacity: 10%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes heart {
+  0% {
+    opacity: 10%;
+  }
+  100% {
+    opacity: 100%;
+  }
 }
 
 .menu h2 {
+  position: relative;
   font-size: medium;
   font-weight: lighter;
   margin: 30px 10px 10px 10px;
+  -webkit-animation: titre 0.5s linear forwards;
+          animation: titre 0.5s linear forwards;
+}
+
+@-webkit-keyframes titre {
+  0% {
+    left: -40px;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes titre {
+  0% {
+    left: -40px;
+  }
+  100% {
+    left: 0;
+  }
 }
 
 .menu h2::after {
@@ -192,10 +233,36 @@ img {
 }
 
 .menu ul li {
+  position: relative;
   background-color: white;
   border-radius: 20px;
   overflow: hidden;
   margin: 10px;
+  opacity: 0;
+  -webkit-animation: plat 1s ease-in 0.4s forwards;
+          animation: plat 1s ease-in 0.4s forwards;
+}
+
+@-webkit-keyframes plat {
+  0% {
+    top: 10px;
+    opacity: 0;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes plat {
+  0% {
+    top: 10px;
+    opacity: 0;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+  }
 }
 
 .menu ul li .plat {
@@ -229,6 +296,9 @@ img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   padding: 5px 0;
 }
 
@@ -236,14 +306,12 @@ img {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-}
-
-.menu ul li .plat .metadata .legende .description p {
-  margin: 0%;
+  margin: 0;
 }
 
 .menu ul li .plat .metadata .legende .prix {
-  margin-left: 5px;
+  margin: 0 15px 0 5px;
+  font-weight: bold;
 }
 
 .menu ul li .plat .checked-indicator {
@@ -520,6 +588,17 @@ img {
 
 .restaurants .like-button:active::before {
   font-weight: 900;
+  -webkit-animation: heart 0.33s ease-in forwards;
+          animation: heart 0.33s ease-in forwards;
+}
+
+@keyframes heart {
+  0% {
+    opacity: 10%;
+  }
+  100% {
+    opacity: 100%;
+  }
 }
 
 /* Footer */
