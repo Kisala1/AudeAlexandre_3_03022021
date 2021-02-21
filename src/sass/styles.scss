@@ -58,9 +58,9 @@ header {
   padding: 20px 0 10px 0;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
   position: relative;
-}
-img {
-  width: 50%;
+  img {
+    max-width: 50%;
+  }
 }
 .header-menu {
   a {
@@ -68,8 +68,10 @@ img {
     justify-content: center;
     color: inherit;
     text-decoration: inherit;
-    
+
     .arrow {
+      position: absolute;
+      left: 0;
       padding: 0 20px;
       align-self: center;
     }
@@ -105,14 +107,14 @@ img {
     margin: 0;
 
     span {
-      &::after {
+      &::before {
         @extend %fontawesomeicon;
         content: "\f004";
       }
-      &:active::after {
+      &:active::before {
         font-weight: 900;
-        @extend %fillingheart;
-        animation: heart 0.33s ease-in forwards;
+        @include fillingheart;
+        @include animheart;
       }
       @keyframes heart {
         0% {
@@ -125,27 +127,30 @@ img {
       }
     }
   }
-  h2 {
-    position: relative;
-    font-size: medium;
-    font-weight: lighter;
-    margin: 30px 10px 10px 10px;
-    animation: titre 0.5s linear forwards;
-    @keyframes titre {
-      0% {
-        left: -40px;
+  .menu__plats {
+    span {
+      position: relative;
+      display: inline-block;
+      font-size: medium;
+      font-weight: lighter;
+      margin: 30px 10px 5px 10px;
+      animation: titre 0.5s linear forwards;
+      @keyframes titre {
+        0% {
+          left: -40px;
+        }
+        100% {
+          left: 0;
+        }
       }
-      100% {
-        left: 0;
-      }
-    }
 
-    &::after {
-      content: "";
-      display: block;
-      width: 40px;
-      height: 3px;
-      background: $mint;
+      &::after {
+        content: "";
+        display: block;
+        width: 40px;
+        height: 3px;
+        background: $mint;
+      }
     }
   }
   ul {
@@ -166,7 +171,7 @@ img {
       &:nth-child(3) {
         animation-delay: 0.6s;
       }
-      &:nth-child(4){
+      &:nth-child(4) {
         animation-delay: 0.7s;
       }
 
@@ -441,7 +446,7 @@ img {
     }
     &:active::before {
       font-weight: 900;
-      @extend %fillingheart;
+      @include fillingheart;
       animation: heart 0.33s ease-in forwards;
     }
     @keyframes heart {
@@ -485,5 +490,95 @@ footer {
   a {
     text-decoration: none;
     color: white;
+  }
+}
+
+@media screen and (min-width: 950px) {
+  /* PAGE D'ACCUEIL*/
+
+  .like-button {
+    &:active::before {
+      display: none;
+    }
+    &:hover::before {
+      @include fillingheart;
+      @include animheart;
+    }
+    /* Fonctionnement */
+
+    .fonctionnement {
+      h2 {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+      ol {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 40px;
+      }
+      li {
+        width: 30%;
+        margin: 0 20px;
+      }
+    }
+
+    /* Restaurants */
+
+    .restaurants {
+      a {
+        display: flex;
+      }
+      .card {
+        width: 30%;
+      }
+    }
+  }
+  /*------------------ MENUS ---------------------*/
+
+  /* Header */
+  .header-menu {
+    img {
+      max-width: 60%;
+    }
+    .arrow {
+      font-size: larger;
+    }
+  }
+  /*----------- */
+
+  .background-img {
+    img {
+      max-height: 350px;
+    }
+  }
+  .menu {
+    h1 {
+      justify-content: center;
+      font-size: xx-large;
+
+      span {
+        margin-left: 50px;
+      }
+    }
+    .menu__flex {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 20px;
+      .menu__plats {
+        flex: 1 1 50%;
+      }
+      h2 {
+        text-align: center;
+        span {
+          &::after{
+            position: absolute;
+            width: 150%;
+            left: 50%;
+            transform: translateX(-50%);
+          }
+        }
+      }
+      
+    }
   }
 }

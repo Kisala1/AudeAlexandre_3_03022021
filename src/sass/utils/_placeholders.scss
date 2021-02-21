@@ -10,16 +10,6 @@
   line-height: 1;
 }
 
-%fillingheart {
-  background: -webkit-linear-gradient(#9356DC, #FF79DA);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  // Si adaptation web sans -webkit-
-  background-clip: text;
-  text-fill-color: transparent;
-  //
-}
-
 %fontawesomecheck {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
@@ -30,3 +20,5 @@
   text-rendering: auto;
   line-height: 1;
 }
+
+
