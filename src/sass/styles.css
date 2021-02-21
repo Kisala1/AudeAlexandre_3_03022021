@@ -98,7 +98,7 @@ header {
 }
 
 header img {
-  max-width: 50%;
+  width: 40%;
 }
 
 .header-menu a {
@@ -675,10 +675,6 @@ footer a {
 
 @media screen and (min-width: 950px) {
   /* PAGE D'ACCUEIL*/
-  .like-button {
-    /* Fonctionnement */
-    /* Restaurants */
-  }
   .like-button:active::before {
     display: none;
   }
@@ -694,11 +690,22 @@ footer a {
     -webkit-animation: heart 0.33s ease-in forwards;
             animation: heart 0.33s ease-in forwards;
   }
-  .like-button .fonctionnement h2 {
+  header img {
+    width: 25%;
+  }
+  .localisation {
+    padding: 20px 0;
+  }
+  .localisation input[type="text"] {
+    font-size: medium;
+    width: 120px;
+  }
+  /* Fonctionnement */
+  .fonctionnement h2 {
     text-align: center;
     margin-bottom: 50px;
   }
-  .like-button .fonctionnement ol {
+  .fonctionnement ol {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -707,16 +714,17 @@ footer a {
             justify-content: center;
     margin-bottom: 40px;
   }
-  .like-button .fonctionnement li {
+  .fonctionnement li {
     width: 30%;
     margin: 0 20px;
   }
-  .like-button .restaurants a {
+  /* Restaurants */
+  .restaurants a {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
   }
-  .like-button .restaurants .card {
+  .restaurants .card {
     width: 30%;
   }
   /*------------------ MENUS ---------------------*/

@@ -59,7 +59,7 @@ header {
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
   position: relative;
   img {
-    max-width: 50%;
+    width: 40%;
   }
 }
 .header-menu {
@@ -504,6 +504,21 @@ footer {
       @include fillingheart;
       @include animheart;
     }
+  }
+header {
+  img {
+   width: 25%;
+  }
+}
+  .localisation {
+    padding: 20px 0;
+    input[type="text"] {
+      font-size: medium;
+      width: 120px;
+    }
+  }
+
+
     /* Fonctionnement */
 
     .fonctionnement {
@@ -532,7 +547,7 @@ footer {
         width: 30%;
       }
     }
-  }
+  
   /*------------------ MENUS ---------------------*/
 
   /* Header */
