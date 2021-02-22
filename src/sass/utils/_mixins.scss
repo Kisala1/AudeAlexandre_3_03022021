@@ -1,13 +1,13 @@
 @mixin fillingheart {
-    font-weight: 900;
-    background: -webkit-linear-gradient(#9356DC, #FF79DA);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    /* Si adaptation web sans -webkit-
+  font-weight: 900;
+  background: -webkit-linear-gradient(#9356dc, #ff79da);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* Si adaptation web sans -webkit-
     background-clip: text;
     text-fill-color: transparent;
     */
-  }
-  @mixin animheart {
-    animation: heart 0.33s ease-in forwards;
-  }
+}
+@mixin animheart {
+  animation: heart 0.33s ease-in forwards;
+}

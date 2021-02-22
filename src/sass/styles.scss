@@ -381,81 +381,84 @@ header {
 .restaurants {
   background-color: #f6f6f6;
   padding-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  padding: 0 30px 30px 30px;
-  gap: 20px;
-
   h2 {
-    padding: 40px 30px 0 0;
+    padding: 40px 30px 20px 30px;
     margin: 0;
   }
-  .card {
-    background-color: white;
-    border-radius: 20px;
-    margin: auto;
 
-    .card-img {
-      position: relative;
-      height: 170px;
-      img {
-        width: 100%;
-        height: inherit;
-        object-fit: cover;
-        border-top-left-radius: 20px;
-        border-top-right-radius: 20px;
-      }
-      .new {
-        position: absolute;
-        right: 10px;
-        top: 10px;
-        color: darken($mint, 40);
-        background-color: $mint;
-        font-weight: bold;
-        padding: 5px 15px;
-        border-radius: 3px;
-      }
-    }
-    figcaption {
-      display: flex;
-      justify-content: space-between;
-      padding-bottom: 10px;
-    }
-    h3,
-    p {
+  .cards {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 0 30px 30px 30px;
+    gap: 20px;
+
+    .card {
+      background-color: white;
+      border-radius: 20px;
       margin: auto;
-      padding: 0 15px;
-    }
-    h3 {
-      padding-top: 10px;
-    }
-    p {
-      padding-top: 5px;
-    }
-    .actions {
-      align-self: center;
-      padding-right: 25px;
-    }
-  }
-  .like-button {
-    font-size: 25px;
-    &::before {
-      @extend %fontawesomeicon;
-      content: "\f004";
-    }
-    &:active::before {
-      font-weight: 900;
-      @include fillingheart;
-      animation: heart 0.33s ease-in forwards;
-    }
-    @keyframes heart {
-      0% {
-        opacity: 10%;
-      }
 
-      100% {
-        opacity: 100%;
+      .card-img {
+        position: relative;
+        height: 170px;
+        img {
+          width: 100%;
+          height: inherit;
+          object-fit: cover;
+          border-top-left-radius: 20px;
+          border-top-right-radius: 20px;
+        }
+        .new {
+          position: absolute;
+          right: 10px;
+          top: 10px;
+          color: darken($mint, 40);
+          background-color: $mint;
+          font-weight: bold;
+          padding: 5px 15px;
+          border-radius: 3px;
+        }
+      }
+      figcaption {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 10px;
+      }
+      h3,
+      p {
+        margin: auto;
+        padding: 0 15px;
+      }
+      h3 {
+        padding-top: 10px;
+      }
+      p {
+        padding-top: 5px;
+      }
+      .actions {
+        align-self: center;
+        padding-right: 25px;
+      }
+    }
+    .like-button {
+      font-size: 25px;
+      &::before {
+        @extend %fontawesomeicon;
+        content: "\f004";
+      }
+      &:active::before {
+        font-weight: 900;
+        @include fillingheart;
+        animation: heart 0.33s ease-in forwards;
+      }
+      @keyframes heart {
+        0% {
+          opacity: 10%;
+        }
+
+        100% {
+          opacity: 100%;
+        }
       }
     }
   }
@@ -494,22 +497,24 @@ footer {
 }
 
 @media screen and (min-width: 950px) {
-  /* PAGE D'ACCUEIL*/
+  /* ------------PAGE D'ACCUEIL---------------*/
 
   .like-button {
     &:active::before {
-      display: none;
+      animation: none;
     }
     &:hover::before {
       @include fillingheart;
       @include animheart;
     }
   }
-header {
-  img {
-   width: 25%;
+
+  header {
+    img {
+      max-width: 25%;
+    }
   }
-}
+
   .localisation {
     padding: 20px 0;
     input[type="text"] {
@@ -518,42 +523,77 @@ header {
     }
   }
 
+  /* Fonctionnement */
 
-    /* Fonctionnement */
+  .fonctionnement {
+    h2 {
+      text-align: center;
+      font-size: xx-large;
+      margin-bottom: 50px;
+    }
+    ol {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+    li {
+      width: 30%;
+      margin: 0 20px;
+    }
+  }
 
-    .fonctionnement {
-      h2 {
-        text-align: center;
-        margin-bottom: 50px;
+  /* Restaurants */
+
+  .restaurants {
+    h2 {
+      text-align: center;
+      padding-bottom: 40px;
+      font-size: xx-large;
+    }
+    .cards {
+      flex-direction: inherit;
+      padding: 0 50px 50px 50px;
+      gap: 50px;
+    }
+    .cards__flex {
+      flex: 1 1 33%;
+    }
+    .like-button {
+      &:active::before {
+        animation: none;
       }
-      ol {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 40px;
+      &:hover::before {
+        @include fillingheart;
+        @include animheart;
       }
+    }
+  }
+  /* Footer */
+
+  footer {
+    h3 {
+      text-align: center;
+      font-size: 180%;
+      margin-bottom: 30px;
+    }
+    ul {
+      display: flex;
+      justify-content: center;
       li {
-        width: 30%;
-        margin: 0 20px;
+        margin-right: 50px;
+        .icon {
+          font-size: medium;
+        }
       }
     }
+  }
 
-    /* Restaurants */
-
-    .restaurants {
-      a {
-        display: flex;
-      }
-      .card {
-        width: 30%;
-      }
-    }
-  
   /*------------------ MENUS ---------------------*/
 
   /* Header */
   .header-menu {
     img {
-      max-width: 60%;
+      min-width: 45%;
     }
     .arrow {
       font-size: larger;
@@ -585,7 +625,21 @@ header {
       h2 {
         text-align: center;
         span {
-          &::after{
+          animation: titledesktop 0.5s linear forwards;
+          @keyframes titledesktop {
+            0% {
+              top : -30px;
+              opacity: 0;
+            }
+            50% {
+              opacity: 0.3;
+            }
+            100% {
+              top: 0;
+              opacity: 1;
+            }
+          }
+          &::after {
             position: absolute;
             width: 150%;
             left: 50%;
@@ -593,7 +647,11 @@ header {
           }
         }
       }
-      
+    }
+    .commander {
+      button {
+        font-size: medium;
+      }
     }
   }
 }
