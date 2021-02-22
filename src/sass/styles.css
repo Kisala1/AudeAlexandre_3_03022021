@@ -695,7 +695,7 @@ footer a {
             animation: heart 0.33s ease-in forwards;
   }
   header img {
-    max-width: 25%;
+    max-width: 20%;
   }
   .localisation {
     padding: 20px 0;
@@ -722,6 +722,55 @@ footer a {
   .fonctionnement li {
     width: 30%;
     margin: 0 20px;
+    -webkit-animation: growli 6s linear infinite;
+            animation: growli 6s linear infinite;
+  }
+  .fonctionnement li:nth-child(1) {
+    -webkit-animation-delay: 0.2s;
+            animation-delay: 0.2s;
+    -webkit-animation-duration: 2s;
+            animation-duration: 2s;
+  }
+  .fonctionnement li:nth-child(2) {
+    -webkit-animation-delay: 1s;
+            animation-delay: 1s;
+    -webkit-animation-duration: 2s;
+            animation-duration: 2s;
+  }
+  .fonctionnement li:nth-child(3) {
+    -webkit-animation-delay: 1.5s;
+            animation-delay: 1.5s;
+    -webkit-animation-duration: 2s;
+            animation-duration: 2s;
+  }
+  @-webkit-keyframes growli {
+    0% {
+      -webkit-transform: scale(1.05);
+              transform: scale(1.05);
+      background-color: rgba(69, 25, 124, 0.4);
+      font-weight: bold;
+      -webkit-animation-duration: 0.8s;
+              animation-duration: 0.8s;
+    }
+  }
+  @keyframes growli {
+    0% {
+      -webkit-transform: scale(1.05);
+              transform: scale(1.05);
+      background-color: rgba(69, 25, 124, 0.4);
+      font-weight: bold;
+      -webkit-animation-duration: 0.8s;
+              animation-duration: 0.8s;
+    }
+  }
+  .fonctionnement li:hover {
+    background-color: inherit;
+  }
+  .fonctionnement li:hover .icon {
+    color: grey;
+  }
+  .fonctionnement li:hover p {
+    font-weight: inherit;
   }
   /* Restaurants */
   .restaurants h2 {
