@@ -50,6 +50,7 @@ a.lien {
   background-color: #d7c0f2;
   -webkit-animation: disappears 1s linear 2.5s forwards;
           animation: disappears 1s linear 2.5s forwards;
+  pointer-events: none;
 }
 
 .loader-container .load {
@@ -77,12 +78,18 @@ a.lien {
 }
 
 @-webkit-keyframes disappears {
+  0% {
+    opacity: 1;
+  }
   100% {
     opacity: 0;
   }
 }
 
 @keyframes disappears {
+  0% {
+    opacity: 1;
+  }
   100% {
     opacity: 0;
   }
@@ -98,7 +105,7 @@ header {
 }
 
 header img {
-  width: 40%;
+  width: 30%;
 }
 
 .header-menu a {
@@ -828,6 +835,9 @@ footer a {
     font-size: medium;
   }
   /*------------------ MENUS ---------------------*/
+  .loader-container .load {
+    font-size: 250%;
+  }
   /* Header */
   .header-menu img {
     min-width: 45%;

@@ -27,8 +27,9 @@ a.lien {
   z-index: 1;
   width: 100%;
   height: 100%;
-  background-color: lighten($purple, 25);
+  background-color: lighten($purple, 25%);
   animation: disappears 1s linear 2.5s forwards;
+  pointer-events: none;
 
   .load {
     position: absolute;
@@ -46,6 +47,9 @@ a.lien {
   }
 }
 @keyframes disappears {
+  0% {
+    opacity: 1;
+  }
   100% {
     opacity: 0;
   }
@@ -59,7 +63,7 @@ header {
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
   position: relative;
   img {
-    width: 40%;
+    width: 30%;
   }
 }
 .header-menu {
@@ -619,6 +623,12 @@ footer {
   }
 
   /*------------------ MENUS ---------------------*/
+
+  .loader-container {
+    .load {
+      font-size: 250%;
+    }
+  }
 
   /* Header */
   .header-menu {
