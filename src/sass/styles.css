@@ -43,6 +43,7 @@ a.lien {
 
 /* Loading */
 .loader-container {
+  display: none;
   position: fixed;
   z-index: 1;
   width: 100%;
@@ -79,7 +80,7 @@ a.lien {
 
 @-webkit-keyframes disappears {
   0% {
-    opacity: 1;
+    opacity: 0;
   }
   100% {
     opacity: 0;
@@ -88,7 +89,7 @@ a.lien {
 
 @keyframes disappears {
   0% {
-    opacity: 1;
+    opacity: 0;
   }
   100% {
     opacity: 0;
@@ -202,7 +203,7 @@ header img {
   }
 }
 
-.menu .menu__plats span {
+.menu .menu__plats h2 span {
   position: relative;
   display: inline-block;
   font-size: medium;
@@ -230,7 +231,7 @@ header img {
   }
 }
 
-.menu .menu__plats span::after {
+.menu .menu__plats h2 span::after {
   content: "";
   display: block;
   width: 40px;
@@ -354,6 +355,8 @@ header img {
   position: relative;
   background: #ade8d9;
   width: 60px;
+  margin-top: 0;
+  margin-bottom: 0;
   margin-right: -60px;
   -webkit-transition: margin 0.33s ease-in;
   transition: margin 0.33s ease-in;
@@ -464,7 +467,7 @@ header img {
   font-family: "Roboto", sans-serif;
   font-weight: bold;
   background-color: #EDEDED;
-  width: 110px;
+  width: 120px;
   padding-left: 10px;
 }
 
@@ -683,7 +686,7 @@ footer a {
   color: white;
 }
 
-@media screen and (min-width: 950px) {
+@media screen and (min-width: 1000px) {
   /* ------------PAGE D'ACCUEIL---------------*/
   .like-button:active::before {
     -webkit-animation: none;
@@ -709,7 +712,7 @@ footer a {
   }
   .localisation input[type="text"] {
     font-size: medium;
-    width: 120px;
+    width: 130px;
   }
   /* Fonctionnement */
   .fonctionnement h2 {
@@ -729,24 +732,24 @@ footer a {
   .fonctionnement li {
     width: 30%;
     margin: 0 20px;
-    -webkit-animation: growli 6s linear infinite;
-            animation: growli 6s linear infinite;
+    -webkit-animation: growli 6s linear 10;
+            animation: growli 6s linear 10;
   }
   .fonctionnement li:nth-child(1) {
-    -webkit-animation-delay: 0.2s;
-            animation-delay: 0.2s;
+    -webkit-animation-delay: 3.2s;
+            animation-delay: 3.2s;
     -webkit-animation-duration: 2s;
             animation-duration: 2s;
   }
   .fonctionnement li:nth-child(2) {
-    -webkit-animation-delay: 1s;
-            animation-delay: 1s;
+    -webkit-animation-delay: 4s;
+            animation-delay: 4s;
     -webkit-animation-duration: 2s;
             animation-duration: 2s;
   }
   .fonctionnement li:nth-child(3) {
-    -webkit-animation-delay: 1.5s;
-            animation-delay: 1.5s;
+    -webkit-animation-delay: 4.5s;
+            animation-delay: 4.5s;
     -webkit-animation-duration: 2s;
             animation-duration: 2s;
   }
@@ -759,6 +762,12 @@ footer a {
       -webkit-animation-duration: 0.8s;
               animation-duration: 0.8s;
     }
+    40% {
+      background-color: white;
+      -webkit-transform: scale(1.01);
+              transform: scale(1.01);
+      font-weight: inherit;
+    }
   }
   @keyframes growli {
     0% {
@@ -768,6 +777,12 @@ footer a {
       font-weight: bold;
       -webkit-animation-duration: 0.8s;
               animation-duration: 0.8s;
+    }
+    40% {
+      background-color: white;
+      -webkit-transform: scale(1.01);
+              transform: scale(1.01);
+      font-weight: inherit;
     }
   }
   .fonctionnement li:hover {

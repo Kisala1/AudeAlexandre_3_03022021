@@ -23,6 +23,7 @@ a.lien {
 /* Loading */
 
 .loader-container {
+  display: none;
   position: fixed;
   z-index: 1;
   width: 100%;
@@ -48,7 +49,7 @@ a.lien {
 }
 @keyframes disappears {
   0% {
-    opacity: 1;
+    opacity: 0;
   }
   100% {
     opacity: 0;
@@ -132,28 +133,30 @@ header {
     }
   }
   .menu__plats {
-    span {
-      position: relative;
-      display: inline-block;
-      font-size: medium;
-      font-weight: lighter;
-      margin: 30px 10px 5px 10px;
-      animation: titre 0.5s linear forwards;
-      @keyframes titre {
-        0% {
-          left: -40px;
+    h2 {
+      span {
+        position: relative;
+        display: inline-block;
+        font-size: medium;
+        font-weight: lighter;
+        margin: 30px 10px 5px 10px;
+        animation: titre 0.5s linear forwards;
+        @keyframes titre {
+          0% {
+            left: -40px;
+          }
+          100% {
+            left: 0;
+          }
         }
-        100% {
-          left: 0;
-        }
-      }
 
-      &::after {
-        content: "";
-        display: block;
-        width: 40px;
-        height: 3px;
-        background: $mint;
+        &::after {
+          content: "";
+          display: block;
+          width: 40px;
+          height: 3px;
+          background: $mint;
+        }
       }
     }
   }
@@ -234,6 +237,8 @@ header {
           position: relative;
           background: lighten($mint, 5%);
           width: 60px;
+          margin-top: 0;
+          margin-bottom: 0;
           margin-right: -60px;
           transition: margin 0.33s ease-in;
 
@@ -328,7 +333,7 @@ header {
     font-family: $font_body;
     font-weight: bold;
     background-color: $background_localisation;
-    width: 110px;
+    width: 120px;
     padding-left: 10px;
   }
 }
@@ -500,7 +505,7 @@ footer {
   }
 }
 
-@media screen and (min-width: 950px) {
+@media screen and (min-width: 1000px) {
   /* ------------PAGE D'ACCUEIL---------------*/
 
   .like-button {
@@ -523,7 +528,7 @@ footer {
     padding: 20px 0;
     input[type="text"] {
       font-size: medium;
-      width: 120px;
+      width: 130px;
     }
   }
 
@@ -543,17 +548,18 @@ footer {
     li {
       width: 30%;
       margin: 0 20px;
-      animation: growli 6s linear infinite;
+      animation: growli 6s linear 10;
+
       &:nth-child(1) {
-        animation-delay: 0.2s;
+        animation-delay: 3.2s;
         animation-duration: 2s;
       }
       &:nth-child(2) {
-        animation-delay: 1s;
+        animation-delay: 4s;
         animation-duration: 2s;
       }
       &:nth-child(3) {
-        animation-delay: 1.5s;
+        animation-delay: 4.5s;
         animation-duration: 2s;
       }
       @keyframes growli {
@@ -562,6 +568,11 @@ footer {
           background-color: rgba(69, 25, 124, 0.4);
           font-weight: bold;
           animation-duration: 0.8s;
+        }
+        40% {
+          background-color: white;
+          transform: scale(1.01);
+          font-weight: inherit;
         }
       }
       &:hover {
