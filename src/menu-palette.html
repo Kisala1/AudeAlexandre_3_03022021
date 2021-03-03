@@ -16,18 +16,7 @@
     ></script>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap"
-      rel="stylesheet"
-    />
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto&family=Shrikhand&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Shrikhand&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -73,7 +62,7 @@
                 />
                 <label class="plat" for="entrée1">
                   <span class="metadata">
-                    <strong>Fricassée d'escargot</strong>
+                    <strong class="titre">Fricassée d'escargot</strong>
                     <span class="legende">
                       <em class="description">Au piment d'espelette</em>
                       <strong class="prix">25€</strong>
@@ -92,12 +81,11 @@
 
                 <label class="plat" for="entrée2">
                   <span class="metadata">
-                    <strong>Foie gras de canard mi-cuit</strong>
+                    <strong class="titre">Foie gras de canard mi-cuit</strong>
                     <span class="legende">
-                      <em class="description"
-                        >Et ses copeaux de truffe noire</em
+                      <em class="description">
+                        Et ses copeaux de truffe noire</em
                       >
-
                       <strong class="prix">35€</strong>
                     </span>
                   </span>
@@ -114,7 +102,7 @@
 
                 <label class="plat" for="entrée3">
                   <span class="metadata">
-                    <strong>Oeuf au plat</strong>
+                    <strong class="titre">Oeuf au plat</strong>
                     <span class="legende">
                       <em class="description">
                         Assaisonné à la truffe sur lit de caviar
@@ -135,7 +123,7 @@
 
                 <label class="plat" for="plat1">
                   <span class="metadata">
-                    <strong>Filet de boeuf aux herbes</strong>
+                    <strong class="titre">Filet de boeuf aux herbes</strong>
                     <span class="legende">
                       <em class="description">
                         Accompagné de sa ribambelle de légumes
@@ -151,7 +139,7 @@
 
                 <label class="plat" for="plat2">
                   <span class="metadata">
-                    <strong>Parmentier de queue de boeuf</strong>
+                    <strong class="titre">Parmentier de queue de boeuf</strong>
                     <span class="legende">
                       <em class="description">
                         À la truffe noire sur sa purée de panais
@@ -167,7 +155,7 @@
 
                 <label class="plat" for="plat3">
                   <span class="metadata">
-                    <strong>Filet de Turbot</strong>
+                    <strong class="titre">Filet de Turbot</strong>
                     <span class="legende">
                       <em class="description">Aux agrumes</em>
                       <strong class="prix">44€</strong>
@@ -191,7 +179,7 @@
 
                 <label class="plat" for="dessert1">
                   <span class="metadata">
-                    <strong>Paris-Brest</strong>
+                    <strong class="titre">Paris-Brest</strong>
                     <span class="legende">
                       <em class="description">Revisité</em>
                       <strong class="prix">18€</strong>
@@ -210,7 +198,9 @@
 
                 <label class="plat" for="dessert2">
                   <span class="metadata">
-                    <strong>Macaron au chocolat d'exception</strong>
+                    <strong class="titre"
+                      >Macaron au chocolat d'exception</strong
+                    >
                     <span class="legende">
                       <em class="description">
                         Et glace à la vanille de Madagascar
@@ -231,11 +221,11 @@
 
                 <label class="plat" for="dessert3">
                   <span class="metadata">
-                    <strong>Mousse au chocolat</strong>
+                    <strong class="titre">Mousse au chocolat</strong>
                     <span class="legende">
                       <em class="description">
                         Au piment d'espelette et à la truffe noire
-                      </em>>
+                      </em>
                       <strong class="prix">23€</strong>
                     </span>
                   </span>
@@ -245,14 +235,14 @@
             </ul>
           </div>
         </div>
-        
-<!--FIXME-->
+
+        <!--FIXME-->
         <div class="menu__plats">
-          <h2>
+          <input class="check" type="checkbox" />
+          <label class="masquer" for="check">
             <span>ENTRÉES</span>
-            <button><i class="cache fas fa-angle-down"></i></button>
-          </h2>
-          <div class="menu__plats masquer">
+          </label>
+          <div class="menu__plats cache">
             <ul>
               <li>
                 <input

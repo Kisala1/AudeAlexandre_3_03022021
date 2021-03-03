@@ -207,7 +207,7 @@ header img {
   position: relative;
   display: inline-block;
   font-size: medium;
-  font-weight: lighter;
+  font-weight: 300;
   margin: 30px 10px 5px 10px;
   -webkit-animation: titre 0.5s linear forwards;
           animation: titre 0.5s linear forwards;
@@ -299,6 +299,7 @@ header img {
 }
 
 .menu ul li .plat {
+  cursor: pointer;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -318,12 +319,12 @@ header img {
   margin: 10px;
 }
 
-.menu ul li .plat .metadata h3 {
-  margin: 0;
-  font-size: large;
+.menu ul li .plat .metadata .titre {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  font-size: large;
+  font-weight: 700;
 }
 
 .menu ul li .plat .metadata .legende {
@@ -341,12 +342,13 @@ header img {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  font-style: inherit;
   margin: 0;
 }
 
 .menu ul li .plat .metadata .legende .prix {
   margin: 0 15px 0 5px;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .menu ul li .plat .checked-indicator {
@@ -465,7 +467,7 @@ header img {
 .localisation input[type="text"] {
   border: none;
   font-family: "Roboto", sans-serif;
-  font-weight: bold;
+  font-weight: 700;
   background-color: #EDEDED;
   width: 120px;
   padding-left: 10px;
@@ -506,7 +508,7 @@ header img {
 }
 
 .fonctionnement li:hover p {
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .fonctionnement li .number {
@@ -582,7 +584,7 @@ header img {
   top: 10px;
   color: #278870;
   background-color: #99E2D0;
-  font-weight: bold;
+  font-weight: 700;
   padding: 5px 15px;
   border-radius: 3px;
 }
@@ -758,7 +760,7 @@ footer a {
       -webkit-transform: scale(1.05);
               transform: scale(1.05);
       background-color: rgba(69, 25, 124, 0.4);
-      font-weight: bold;
+      font-weight: 700;
       -webkit-animation-duration: 0.8s;
               animation-duration: 0.8s;
     }
@@ -774,7 +776,7 @@ footer a {
       -webkit-transform: scale(1.05);
               transform: scale(1.05);
       background-color: rgba(69, 25, 124, 0.4);
-      font-weight: bold;
+      font-weight: 700;
       -webkit-animation-duration: 0.8s;
               animation-duration: 0.8s;
     }
@@ -928,6 +930,53 @@ footer a {
   }
   .menu .commander button {
     font-size: medium;
+  }
+}
+
+.check {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+.masquer {
+  cursor: pointer;
+}
+
+.masquer span::after {
+  content: "\f107";
+  font-weight: 900;
+  font-family: "Font Awesome 5 Free";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+  -webkit-transition: -webkit-transform 0.33s ease-in;
+  transition: -webkit-transform 0.33s ease-in;
+  transition: transform 0.33s ease-in;
+  transition: transform 0.33s ease-in, -webkit-transform 0.33s ease-in;
+}
+
+.masquer span::after:checked {
+  -webkit-animation: arrowrotate 0.5s forwards;
+          animation: arrowrotate 0.5s forwards;
+}
+
+@-webkit-keyframes arrowrotate {
+  100% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+}
+
+@keyframes arrowrotate {
+  100% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
   }
 }
 /*# sourceMappingURL=styles.css.map */

@@ -138,7 +138,7 @@ header {
         position: relative;
         display: inline-block;
         font-size: medium;
-        font-weight: lighter;
+        font-weight: 300;
         margin: 30px 10px 5px 10px;
         animation: titre 0.5s linear forwards;
         @keyframes titre {
@@ -197,6 +197,7 @@ header {
       }
 
       .plat {
+        cursor: pointer;
         display: flex;
         flex-direction: row;
 
@@ -205,12 +206,10 @@ header {
           flex-shrink: 1;
           min-width: 0;
           margin: 10px;
-          h3 {
-            margin: 0;
+          .titre {
+            @include ellipsis;
             font-size: large;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            overflow: hidden;
+            font-weight: 700;
           }
           .legende {
             display: flex;
@@ -219,14 +218,13 @@ header {
             padding: 5px 0;
 
             .description {
-              text-overflow: ellipsis;
-              white-space: nowrap;
-              overflow: hidden;
+              @include ellipsis;
+              font-style: inherit;
               margin: 0;
             }
             .prix {
               margin: 0 15px 0 5px;
-              font-weight: bold;
+              font-weight: 700;
             }
           }
         }
@@ -331,7 +329,7 @@ header {
   input[type="text"] {
     border: none;
     font-family: $font_body;
-    font-weight: bold;
+    font-weight: 700;
     background-color: $background_localisation;
     width: 120px;
     padding-left: 10px;
@@ -361,7 +359,7 @@ header {
         color: $purple;
       }
       p {
-        font-weight: bold;
+        font-weight: 700;
       }
     }
     .number {
@@ -423,7 +421,7 @@ header {
           top: 10px;
           color: darken($mint, 40);
           background-color: $mint;
-          font-weight: bold;
+          font-weight: 700;
           padding: 5px 15px;
           border-radius: 3px;
         }
@@ -566,7 +564,7 @@ footer {
         0% {
           transform: scale(1.05);
           background-color: rgba(69, 25, 124, 0.4);
-          font-weight: bold;
+          font-weight: 700;
           animation-duration: 0.8s;
         }
         40% {
@@ -702,6 +700,28 @@ footer {
     .commander {
       button {
         font-size: medium;
+      }
+    }
+  }
+}
+
+.check {
+  appearance: none;
+}
+.masquer {
+  cursor: pointer;
+  span {
+    &::after {
+      @include fontawesomecache;
+      transform: rotate(0deg);
+      transition: transform 0.33s ease-in;
+      &:checked {
+        animation: arrowrotate 0.5s forwards;
+      }
+      @keyframes arrowrotate {
+        100% {
+          transform: rotate(180deg);
+        }
       }
     }
   }
