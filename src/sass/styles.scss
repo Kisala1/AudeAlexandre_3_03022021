@@ -23,7 +23,6 @@ a.lien {
 /* Loading */
 
 .loader-container {
-  display: none;
   position: fixed;
   z-index: 1;
   width: 100%;
@@ -82,222 +81,28 @@ header {
     }
   }
 }
-/* ------------------------------------------------MENUS------------------------------------------------ */
-/* background-img*/
 
-.background-img {
-  img {
-    width: 100%;
-    max-height: 250px;
-    object-fit: cover;
-  }
-}
-/* .menu */
+/* Présentation */
 
-.menu {
-  position: relative;
-  margin-top: -60px;
-  display: flex;
-
-  flex-direction: column;
-  background-color: #f6f6f6;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  h1 {
-    font-family: $font_logo, sans-serif;
-    font-weight: 400;
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 20px 0 20px;
-    margin: 0;
-
-    span {
-      &::before {
-        @extend %fontawesomeicon;
-        content: "\f004";
-      }
-      &:active::before {
-        font-weight: 900;
-        @include fillingheart;
-        @include animheart;
-      }
-      @keyframes heart {
-        0% {
-          opacity: 10%;
-        }
-
-        100% {
-          opacity: 100%;
-        }
-      }
-    }
-  }
-  .menu__plats {
-    h2 {
-      span {
-        position: relative;
-        display: inline-block;
-        font-size: medium;
-        font-weight: 300;
-        margin: 30px 10px 5px 10px;
-        animation: titre 0.5s linear forwards;
-        @keyframes titre {
-          0% {
-            left: -40px;
-          }
-          100% {
-            left: 0;
-          }
-        }
-
-        &::after {
-          content: "";
-          display: block;
-          width: 40px;
-          height: 3px;
-          background: $mint;
-        }
-      }
-    }
-  }
-  ul {
-    list-style: none;
-    padding: 0;
-
-    li {
-      position: relative;
-      background-color: white;
-      border-radius: 20px;
-      overflow: hidden;
-      margin: 10px;
-      opacity: 0;
-      animation: plat 0.33s linear 0.4s forwards;
-      &:nth-child(2) {
-        animation-delay: 0.5s;
-      }
-      &:nth-child(3) {
-        animation-delay: 0.6s;
-      }
-      &:nth-child(4) {
-        animation-delay: 0.7s;
-      }
-
-      @keyframes plat {
-        0% {
-          top: 10px;
-          opacity: 0;
-        }
-        50% {
-          opacity: 0.3;
-        }
-        100% {
-          top: 0;
-          opacity: 1;
-        }
-      }
-
-      .plat {
-        cursor: pointer;
-        display: flex;
-        flex-direction: row;
-
-        .metadata {
-          flex-grow: 1;
-          flex-shrink: 1;
-          min-width: 0;
-          margin: 10px;
-          .titre {
-            @include ellipsis;
-            font-size: large;
-            font-weight: 700;
-          }
-          .legende {
-            display: flex;
-            justify-content: space-between;
-            font-size: 90%;
-            padding: 5px 0;
-
-            .description {
-              @include ellipsis;
-              font-style: inherit;
-              margin: 0;
-            }
-            .prix {
-              margin: 0 15px 0 5px;
-              font-weight: 700;
-            }
-          }
-        }
-
-        .checked-indicator {
-          flex-shrink: 0;
-
-          position: relative;
-          background: lighten($mint, 5%);
-          width: 60px;
-          margin-top: 0;
-          margin-bottom: 0;
-          margin-right: -60px;
-          transition: margin 0.33s ease-in;
-
-          &::before {
-            content: "\f058";
-            @extend %fontawesomecheck;
-            color: white;
-            font-size: 20px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotate(270deg);
-            transition: transform 0.33s ease-in;
-          }
-        }
-      }
-
-      .check {
-        position: absolute;
-        width: 0;
-        height: 0;
-        appearance: none;
-      }
-      .check:checked + .plat {
-        .checked-indicator {
-          margin-right: 0;
-
-          &::before {
-            transform: translate(-50%, -50%) rotate(0deg);
-          }
-        }
-      }
-    }
-  }
-  .commander {
-    text-align: center;
-    padding: 30px 0;
-    button {
-      cursor: pointer;
-      padding: 10px 30px;
-      color: white;
-      border: none;
-      border-radius: 50px;
-      background: linear-gradient(170deg, $pink, $purple);
-      box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
-      &:hover {
-        background: linear-gradient(170deg, #ff99ff, #8855aa);
-        box-shadow: 2px 5px 8px rgba(0, 0, 0, 0.5);
-      }
-    }
-  }
-}
-
-/* ------------------------------------------------------------------------------------------------------------ */
-
-/* Découverte */
-
-.decouverte {
+.presentation {
   text-align: center;
   background-color: #f6f6f6;
   padding-bottom: 50px;
+  .localisation {
+    display: flex;
+    justify-content: center;
+    background-color: $background_localisation;
+    padding: 10px 0;
+
+    input[type="text"] {
+      border: none;
+      font-family: $font_body;
+      font-weight: 700;
+      background-color: $background_localisation;
+      width: 130px;
+      padding-left: 10px;
+    }
+  }
   p {
     font-weight: 300;
     padding-bottom: 20px;
@@ -317,22 +122,6 @@ header {
       background: linear-gradient(170deg, #ff99ff, #8855aa);
       box-shadow: 2px 5px 8px rgba(0, 0, 0, 0.5);
     }
-  }
-}
-
-.localisation {
-  display: flex;
-  justify-content: center;
-  background-color: $background_localisation;
-  padding: 10px 0;
-
-  input[type="text"] {
-    border: none;
-    font-family: $font_body;
-    font-weight: 700;
-    background-color: $background_localisation;
-    width: 120px;
-    padding-left: 10px;
   }
 }
 
@@ -376,8 +165,9 @@ header {
       color: grey;
       padding: 0 20px;
     }
-    .fa-mobile-alt {
-      font-size: 20px;
+
+    .phone {
+      font-size: 20px; // Taille initiale inférieures aux autres .icon
       margin-right: 5px;
     }
   }
@@ -450,13 +240,11 @@ header {
     .like-button {
       font-size: 25px;
       &::before {
-        @extend %fontawesomeicon;
-        content: "\f004";
+        @extend %fontawesomeheart; // Coeur avec bordure
       }
       &:active::before {
-        font-weight: 900;
-        @include fillingheart;
-        animation: heart 0.33s ease-in forwards;
+        @include fillingheart; // Coeur rempli
+        @include animheart; // Effet de remplissage
       }
       @keyframes heart {
         0% {
@@ -470,6 +258,7 @@ header {
     }
   }
 }
+
 /* Footer */
 
 footer {
@@ -484,8 +273,7 @@ footer {
     margin: 0;
   }
   ul {
-    list-style: none;
-    padding: 0;
+    @include liststyle;
   }
   li {
     padding-bottom: 10px;
@@ -494,17 +282,222 @@ footer {
     padding-right: 10px;
   }
 
-  .fa-hands-helping {
-    font-size: 11px;
+  .hands {
+    font-size: 11px; // Taille initiale inférieures aux autres .icon
   }
   a {
     text-decoration: none;
     color: white;
   }
 }
+/* ------------------------------------------------MENUS------------------------------------------------ */
+
+/* Background-img*/
+
+.background-img {
+  img {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+  }
+}
+/* Menu */
+
+.menu {
+  position: relative;
+  margin-top: -60px;
+  display: flex;
+
+  flex-direction: column;
+  background-color: #f6f6f6;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  h1 {
+    font-family: $font_logo, sans-serif;
+    font-weight: 400;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 20px 0 20px;
+    margin: 0;
+
+    span {
+      &::before {
+        @extend %fontawesomeheart; // Coeur avec bordure
+      }
+      &:active::before {
+        @include fillingheart; // Coeur rempli
+        @include animheart; // Effet de remplissage
+      }
+    }
+  }
+  .menu__plats {
+    h2 {
+      span {
+        position: relative;
+        display: inline-block;
+        font-size: medium;
+        font-weight: 300;
+        margin: 30px 10px 5px 10px;
+        animation: titre 0.5s linear forwards;
+        @keyframes titre {
+          0% {
+            left: -40px;
+          }
+          100% {
+            left: 0;
+          }
+        }
+
+        &::after {
+          content: "";
+          display: block;
+          width: 40px;
+          height: 3px;
+          background: $mint;
+        }
+      }
+    }
+  }
+  ul {
+    @include liststyle;
+
+    li {
+      position: relative;
+      background-color: white;
+      border-radius: 20px;
+      overflow: hidden;
+      margin: 10px;
+      opacity: 0;
+      animation: plat 0.33s linear 0.4s forwards;
+      @keyframes plat {
+        0% {
+          top: 10px;
+          opacity: 0;
+        }
+        50% {
+          opacity: 0.3;
+        }
+        100% {
+          top: 0;
+          opacity: 1;
+        }
+      }
+      // Effet li arrivent un après l'autre
+      &:nth-child(2) {
+        animation-delay: 0.5s;
+      }
+      &:nth-child(3) {
+        animation-delay: 0.6s;
+      }
+      &:nth-child(4) {
+        animation-delay: 0.7s;
+      }
+
+      .plat {
+        cursor: pointer;
+        display: flex;
+        flex-direction: row;
+
+        .metadata {
+          flex-grow: 1;
+          flex-shrink: 1;
+          min-width: 0;
+          margin: 10px;
+          .titre {
+            @include ellipsis;
+            font-size: large;
+            font-weight: 700;
+          }
+          .legende {
+            display: flex;
+            justify-content: space-between;
+            font-size: 90%;
+            padding: 5px 0;
+
+            .description {
+              @include ellipsis;
+              font-style: inherit;
+              margin: 0;
+            }
+            .prix {
+              margin: 0 15px 0 5px;
+              font-weight: 700;
+            }
+          }
+        }
+
+        .checked-indicator {
+          flex-shrink: 0;
+          position: relative;
+          background: lighten($mint, 5%);
+          width: 60px;
+          margin-top: 0;
+          margin-bottom: 0;
+          margin-right: -60px;
+          transition: margin 0.33s ease-in;
+
+          &::before {
+            @extend %fontawesomecheck;
+            color: white;
+            font-size: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(270deg); // Effet de rotation
+            transition: transform 0.33s ease-in;
+          }
+        }
+      }
+
+      .check {
+        position: absolute;
+        width: 0;
+        height: 0;
+        appearance: none;
+      }
+      .check:checked + .plat {
+        .checked-indicator {
+          margin-right: 0;
+
+          &::before {
+            transform: translate(-50%, -50%) rotate(0deg); // Effet de rotation
+          }
+        }
+      }
+    }
+  }
+  .commander {
+    text-align: center;
+    padding: 30px 0;
+    button {
+      cursor: pointer;
+      padding: 10px 30px;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      background: linear-gradient(170deg, $pink, $purple); // Dégradé
+      box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
+      &:hover {
+        background: linear-gradient(
+          170deg,
+          #ff99ff,
+          #8855aa
+        ); // Dégradé éclaircit
+        box-shadow: 2px 5px 8px rgba(0, 0, 0, 0.5);
+      }
+    }
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------------------ */
 
 @media screen and (min-width: 1000px) {
   /* ------------PAGE D'ACCUEIL---------------*/
+  .loader-container {
+    .load {
+      font-size: 250%;
+    }
+  }
 
   .like-button {
     &:active::before {
@@ -518,7 +511,7 @@ footer {
 
   header {
     img {
-      max-width: 20%;
+      max-width: 18%;
     }
   }
 
@@ -544,22 +537,10 @@ footer {
       margin-bottom: 40px;
     }
     li {
-      width: 30%;
+      width: 25%;
       margin: 0 20px;
       animation: growli 6s linear 10;
 
-      &:nth-child(1) {
-        animation-delay: 3.2s;
-        animation-duration: 2s;
-      }
-      &:nth-child(2) {
-        animation-delay: 4s;
-        animation-duration: 2s;
-      }
-      &:nth-child(3) {
-        animation-delay: 4.5s;
-        animation-duration: 2s;
-      }
       @keyframes growli {
         0% {
           transform: scale(1.05);
@@ -572,6 +553,20 @@ footer {
           transform: scale(1.01);
           font-weight: inherit;
         }
+      }
+      // Effet commence après loading spinner
+
+      &:nth-child(1) {
+        animation-delay: 3.2s;
+        animation-duration: 2s;
+      }
+      &:nth-child(2) {
+        animation-delay: 4s;
+        animation-duration: 2s;
+      }
+      &:nth-child(3) {
+        animation-delay: 4.5s;
+        animation-duration: 2s;
       }
       &:hover {
         background-color: inherit;
@@ -597,9 +592,11 @@ footer {
       flex-direction: inherit;
       padding: 0 50px 50px 50px;
       gap: 50px;
+      justify-content: center;
     }
     .cards__flex {
-      flex: 1 1 33%;
+      flex: 1 1 40%;
+      max-width: 40%;
     }
     .like-button {
       &:active::before {
@@ -631,13 +628,7 @@ footer {
     }
   }
 
-  /*------------------ MENUS ---------------------*/
-
-  .loader-container {
-    .load {
-      font-size: 250%;
-    }
-  }
+  /*--------------------------- MENUS ----------------------------------*/
 
   /* Header */
   .header-menu {
@@ -648,7 +639,7 @@ footer {
       font-size: larger;
     }
   }
-  /*----------- */
+  /*------ */
 
   .background-img {
     img {
@@ -668,8 +659,12 @@ footer {
       display: flex;
       flex-wrap: wrap;
       margin-top: 20px;
+      justify-content: center;
       .menu__plats {
         flex: 1 1 50%;
+        &:nth-child(3) {
+          max-width: 50%;
+        }
       }
       h2 {
         text-align: center;
@@ -700,28 +695,6 @@ footer {
     .commander {
       button {
         font-size: medium;
-      }
-    }
-  }
-}
-
-.check {
-  appearance: none;
-}
-.masquer {
-  cursor: pointer;
-  span {
-    &::after {
-      @include fontawesomecache;
-      transform: rotate(0deg);
-      transition: transform 0.33s ease-in;
-      &:checked {
-        animation: arrowrotate 0.5s forwards;
-      }
-      @keyframes arrowrotate {
-        100% {
-          transform: rotate(180deg);
-        }
       }
     }
   }
