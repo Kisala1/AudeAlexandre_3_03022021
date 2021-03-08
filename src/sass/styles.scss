@@ -405,6 +405,7 @@ footer {
           margin: 10px;
           .titre {
             @include ellipsis;
+            display: block;
             font-size: large;
             font-weight: 700;
           }
